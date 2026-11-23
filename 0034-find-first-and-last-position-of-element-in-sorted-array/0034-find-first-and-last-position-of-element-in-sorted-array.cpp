@@ -1,43 +1,75 @@
 class Solution {
 public:
-    vector<int> searchRange(vector<int>& nums, int target) 
-    {
-        if (nums.size() == 0) return {-1,-1};
-        int low = 0;
-        int high = nums.size()-1;
-        int mid;
-        int l1=-1 , l2=-1;
-
-        while (low <= high)
+    vector<int> searchRange(vector<int>& nums, int target) {
+        int n=nums.size();
+        int first=firstOcc(nums,target);
+        int last=lastOcc(nums,target);
+        if(first==-1 && last==-1)
         {
-            mid = (low+high)/2;
-            if (nums[mid] == target)
-            {
-                l1 = mid;
-                high = mid - 1;
-            }
-            else if (nums[mid] > target)
-                high = mid - 1;
-            else
-                low  = mid + 1;
+            return {-1,-1};
         }
-
-        low = 0;
-        high = nums.size()-1;
-        while (low <= high)
-        {
-            mid = (low+high)/2;
-            if (nums[mid] == target)
-            {
-                l2 = mid;
-                low = mid+ 1;
-            }
-            else if (nums[mid] > target)
-                high = mid - 1;
-            else
-                low  = mid + 1;
-        }
-
-        return {l1 , l2};
+        return vector<int>{first,last};
     }
+
+    private:
+        int firstOcc(vector<int>& nums,int target)
+        {
+            int n=nums.size();
+            int low=0,high=n-1;
+            while(low<=high)
+            {
+                int mid=low+(high-low)/2;
+                if(nums[mid]>target)
+                {
+                    high=mid-1;
+                }
+                else if(nums[mid]<target)
+                {
+                    low=mid+1;
+                }
+                else
+                {
+                    if(mid==0 || nums[mid]!=nums[mid-1])
+                    {
+                        return mid;
+                    }
+                    else
+                    {
+                        high=mid-1;
+                    }
+                }
+            }
+            return -1;
+        }
+
+    private:
+        int lastOcc(vector<int>& nums,int target)
+        {
+            int n=nums.size();
+            int low=0,high=n-1;
+            while(low<=high)
+            {
+                int mid=low+(high-low)/2;
+                if(nums[mid]>target)
+                {
+                    high=mid-1;
+                }
+                else if(nums[mid]<target)
+                {
+                    low=mid+1;
+                }
+                else
+                {
+                    if(mid==n-1 || nums[mid]!=nums[mid+1])
+                    {
+                        return mid;
+                    }
+                    else
+                    {
+                        low=mid+1;
+                    }
+                }
+            }
+            return -1;
+        }
 };
