@@ -86,6 +86,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [1470-shuffle-the-array](https://github.com/khxn-codes/LeetCode/tree/master/1470-shuffle-the-array) |
 | [1502-can-make-arithmetic-progression-from-sequence](https://github.com/khxn-codes/LeetCode/tree/master/1502-can-make-arithmetic-progression-from-sequence) |
 | [1929-concatenation-of-array](https://github.com/khxn-codes/LeetCode/tree/master/1929-concatenation-of-array) |
+| [2951-find-the-peaks](https://github.com/khxn-codes/LeetCode/tree/master/2951-find-the-peaks) |
 ## Binary Search
 |  |
 | ------- |
@@ -197,6 +198,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0204-count-primes](https://github.com/khxn-codes/LeetCode/tree/master/0204-count-primes) |
+| [2951-find-the-peaks](https://github.com/khxn-codes/LeetCode/tree/master/2951-find-the-peaks) |
 ## Number Theory
 |  |
 | ------- |
